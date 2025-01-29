@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # ========================Start Disk Usage ====================
 
 monitor_disk_usage(){
@@ -17,9 +16,11 @@ echo "Disk usage : $disk_usage% "
 
 if [ $disk_usage -gt 80 ]
 then
-  echo "Warning disk usage is above 80% "
+  echo "Warning! disk usage is above 80% "
 
 # send warining mail
+  echo "sending email....."
+  echo "Warning" | mail -s "Your device disk usage is greater than 80%" om039919@gmail.com
 
 fi
 }
@@ -70,6 +71,7 @@ monitor_top_five(){
 # capture the top five using memory process
 top_five=$(ps -eo pid,user,%mem,command --sort=-%mem | head -n 6)
 
+
 # print memory usuage
 
 echo "=======Top Five Using Memory Processes=========="
@@ -80,15 +82,14 @@ echo "$top_five"
 
 
 #==================GENERATE REPORT =========================
-
 gen_report(){
-echo "=========================================================="
+echo "==================Monitor Report========================================"
+echo "Reported at :"
 date
 monitor_disk_usage
 monitor_CPU_usage
 monitor_Mem_usage
 monitor_top_five
 }
-
 gen_report
 
