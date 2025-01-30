@@ -17,12 +17,11 @@ echo "Disk usage : $disk_usage% "
 if [ $disk_usage -gt 80 ]
 then
   echo "Warning! disk usage is above 80% "
-
 # send warining mail
   echo "sending email....."
-  echo "Warning" | mail -s "Your device disk usage is greater than 80%" om039919@gmail.com
-
+  echo "Warning: Disk usage exceeded 80%. Please take proper actions." | mail -s "Disk Usage Warning" -a "From: Monitor System <om03991@gmail.com>" om039919@gmail.com
 fi
+
 }
 
 # ========================End Disk Usage ====================
@@ -92,4 +91,5 @@ monitor_Mem_usage
 monitor_top_five
 }
 gen_report
+
 
