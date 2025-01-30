@@ -59,19 +59,17 @@ Make sure that the `mail` utility is configured and working correctly to send th
     - Outputs a timestamped report with all system data.
 ## Output
 the final output is report contain's reported date and (monitor_disk_usage, monitor_CPU_usage, monitor_Mem_usage, monitor_top_five)
-
+![Disk Usage Screenshot](./images/output_screenshot.jpg)
+if **disk usage** exceeds **80%** it will send an email warning 
+![Disk Usage Screenshot](./images/email_screenshot.jpg)
 ## cronjob
 cronjob enables the functionality of this script by running the script in periodic time to monitor your system
-### add cronjob
-1-write this command **sudo crontab -e**
-2-press `i` to insert 
-3-write your cronjob 
-ex : * * * * your-scipt-path &>> /var/log/your-log-file.log
-excute the script every minute
-4- press `ESC` and `:wq`
-5- to read log file **/var/log/your-log-file.log**
-
-
-
+- **Step 1**: Opens the crontab editor with `sudo` for root access  **sudo crontab -e**.
+- **Step 2**: press `i` to inser
+- **Step 3**: Adds the cron job to execute the script every minute. The output is logged to a file.
+- **Step 4**: Saves and exits the editor using `ESC` and `:wq`.
+- **Step 5**: Reads the log file to check the output of the script **cat /var/log/your-log-file.log**.
+**crontab file**
+![Disk Usage Screenshot](./images/crontab.png)
 ## Contact
 For questions or feedback, contact the project maintainer at om039919@gmail.com.
